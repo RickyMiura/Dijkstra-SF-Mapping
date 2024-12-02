@@ -1,0 +1,11 @@
+{
+    "functions": {
+      "api/py/shortest-path": {
+        "maxDuration": 60
+      },
+      "api/index": {
+        "maxDuration": 60
+      }
+    }
+  }
+  
