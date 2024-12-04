@@ -40,7 +40,7 @@ const HomePage = () => {
           This app uses Dijkstra&apos;s algorithm to find the shortest path between two addresses.
           Input two addresses in San Francisco to find the shortest route between them! The source
           code can be found on GitHub{" "}
-          <a href="https://github.com/your-repo" className="text-blue-600 hover:underline">
+          <a href="https://github.com/jggreen3/algorithms-project-dijkstra" className="text-blue-600 hover:underline">
             here
           </a>.
         </p>
