@@ -10,7 +10,6 @@ import googlemaps
 import dotenv
 import os
 from scipy.spatial import KDTree
-import numpy as np
 
 
 dotenv.load_dotenv()
@@ -36,7 +35,7 @@ G = data["graph"]
 node_coordinates = data["node_coordinates"]
 
 # Build KD-tree for nearest neighbor queries
-node_coords = np.array([(lat, lon) for lat, lon in node_coordinates.values()])
+node_coords = [(lat, lon) for lat, lon in node_coordinates.values()]
 node_ids = list(node_coordinates.keys())
 kd_tree = KDTree(node_coords)
 
