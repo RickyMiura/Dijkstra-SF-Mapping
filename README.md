@@ -11,39 +11,24 @@
 
 ## Introduction
 
-This is a hybrid Next.js 14 + Python template. One great use case of this is to write Next.js apps that use Python AI libraries on the backend, while still having the benefits of Next.js Route Handlers and Server Side Rendering.
+This project is a demonstration of Dijkstra's algorithm for real-life pathfinding. Given two addresses in San Francisco, it computes
+the shortest path between them using Dijkstra's algorithm.
 
 ## How It Works
 
-The Python/FastAPI server is mapped into to Next.js app under `/api/`.
+Under the hood, the process for computing a path is:
+1. Geocode the addresses into coordinates with the Google Maps API
+2. Given a set of coordinates, use a KD tree to find the closest nodes in the graph to use as the starting and ending points.
+3. Use Dijkstra's algorithm to find the shortest path between the two nodes. 
 
-This is implemented using [`next.config.js` rewrites](https://github.com/digitros/nextjs-fastapi/blob/main/next.config.js) to map any request to `/api/py/:path*` to the FastAPI API, which is hosted in the `/api` folder.
-
-Also, the app/api routes are available on the same domain, so you can use NextJs Route Handlers and make requests to `/api/...`.
-
-On localhost, the rewrite will be made to the `127.0.0.1:8000` port, which is where the FastAPI server is running.
-
-In production, the FastAPI server is hosted as [Python serverless functions](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python) on Vercel.
+The app is built with Nextjs for the frontent and fastapi for the backend. 
 
 ## Demo
 
-https://nextjs-fastapi-starter.vercel.app/
+You can check out the app on Vercel [here](https://algorithms-project-dijkstra.vercel.app/)
 
-## Deploy Your Own
 
-You can clone & deploy it to Vercel with one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdigitros%2Fnextjs-fastapi%2Ftree%2Fmain)
-
-## Developing Locally
-
-You can clone & create this repo with the following command
-
-```bash
-npx create-next-app nextjs-fastapi --example "https://github.com/digitros/nextjs-fastapi"
-```
-
-## Getting Started
+## Running Locally
 
 First, create and activate a virtual environment:
 
@@ -74,14 +59,5 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The FastApi server will be running on [http://127.0.0.1:8000](http://127.0.0.1:8000) – feel free to change the port in `package.json` (you'll also need to update it in `next.config.js`).
+The FastApi server will be running on [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [FastAPI Documentation](https://fastapi.tiangolo.com/) - learn about FastAPI features and API.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
