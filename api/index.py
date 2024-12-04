@@ -9,7 +9,10 @@ import time
 import googlemaps
 import dotenv
 import os
-from scipy.spatial import KDTree
+# from scipy.spatial import KDTree
+from pykdtree.kdtree import KDTree
+import numpy as np
+
 
 
 dotenv.load_dotenv()
@@ -35,7 +38,8 @@ G = data["graph"]
 node_coordinates = data["node_coordinates"]
 
 # Build KD-tree for nearest neighbor queries
-node_coords = [(lat, lon) for lat, lon in node_coordinates.values()]
+# node_coords = [(lat, lon) for lat, lon in node_coordinates.values()]
+node_coords = np.array([(lat, lon) for lat, lon in node_coordinates.values()])
 node_ids = list(node_coordinates.keys())
 kd_tree = KDTree(node_coords)
 
@@ -73,8 +77,11 @@ class PathRequest(BaseModel):
 def map_to_node(coords):
     lat, lon = coords
     # Query KD-tree for the nearest node
-    distance, index = kd_tree.query([lat, lon])
-    nearest_node = node_ids[index]
+    # distance, index = kd_tree.query([lat, lon])
+    distance, index = kd_tree.query(np.array([[lat, lon]]
+))
+    # nearest_node = node_ids[index]
+    nearest_node = node_ids[index[0]]
     logger.info(f"KD-tree Closest Node: {nearest_node}, Distance: {distance}")
     return nearest_node
 
