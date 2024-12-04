@@ -37,7 +37,7 @@ const HomePage = () => {
       <div className="max-w-4xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-4">SF Shortest Path Finder</h1>
         <p className="text-center text-gray-700 mb-8">
-          This app uses Dijkstra's algorithm to find the shortest path between two addresses.
+          This app uses Dijkstra&apos;s algorithm to find the shortest path between two addresses.
           Input two addresses in San Francisco to find the shortest route between them! The source
           code can be found on GitHub{" "}
           <a href="https://github.com/your-repo" className="text-blue-600 hover:underline">
