@@ -1,4 +1,4 @@
-## Introduction
+# Overview
 
 This project is a demonstration of Dijkstra's algorithm for real-life pathfinding. Given two addresses in San Francisco, it computes
 the shortest path between them using Dijkstra's algorithm.
