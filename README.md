@@ -50,3 +50,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 The FastApi server will be running on [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
+# Contributors
+1) Ricky Miura
+2) John Green
+3) Eli Mecinas Cruz
